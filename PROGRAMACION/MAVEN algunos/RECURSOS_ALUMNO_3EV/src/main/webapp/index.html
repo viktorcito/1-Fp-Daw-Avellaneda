@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Examen 3ev</title>
+        <meta charset="UTF-8">
+    <style>
+    	h1,h2{
+    		text-align:center;
+    	}
+        body {
+            font-size: 16px;
+            font-family: sans-serif;
+        }
+        form{
+        	margin: 0px auto;
+        	width:80%;
+        }
+        
+        .fieldset-principal {
+            padding-left: 2em;
+            padding-right: 2em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #395870;
+            box-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
+        }
+        .fieldset-principal>legend {
+            padding: 0.2em 0.5em;
+            border: 1px solid;
+            background: #395870;
+            background: linear-gradient(#49708f, #293f50);
+            color: white;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label[for] {
+            margin-top: 0.5em;
+            font-weight: bold;
+            display: block;
+        }
+        label input[type="checkbox"],
+        label input[type="radio"] {
+            display: inline;
+            font-weight: normal;
+        }
+        .obligatorio:after {
+            content: ' (obligatorio)';
+        }
+        button {
+            padding: 0 5px 0 5px;
+            height: 25px;
+            line-height: 20px;
+            border: 2px solid #395870;
+            border-radius: 6px;
+            background: #395870;
+            background: linear-gradient(#49708f, #293f50);
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+        }
+
+        button:hover {
+            background: #314b60;
+            box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Gestión de empleados</h2>
+    
+    <form action="InformeServlet" method="post">
+        <fieldset class="fieldset-principal">
+            <legend>Informe de empleados por departamento</legend>
+            <label for="departamento">Departamento</label>
+            <select name="departamento" multiple>
+                <option value="1">Desarrollo</option>
+                <option value="2">Sistemas</option>
+                <option value="3">Recursos Humanos</option>
+                <option value="4">Contabilidad</option>
+                <option value="5">I+D</option>
+                <option value="6">Proyectos</option>
+                <option value="7">Publicidad</option>
+            </select>
+            <p>
+                <button name="enviar" type="submit">Obtener informes</button>
+            </p>
+        </fieldset>
+    </form>
+    
+    <form action="AltaServlet">
+        <fieldset class="fieldset-principal">
+            <legend>Dar de alta un empleado</legend>
+            <label for="nif">NIF (*)</label>
+            <input name="nif" type="text" pattern="[0-9]{8}[A-Z]{1}" required>
+
+            <label for="nombre">Nombre (*)</label>
+            <input name="nombre" type="text" required>
+
+            <label for="apellido1">Primer Apellido (*)</label>
+            <input name="apellido1" type="text" required>
+
+            <label for="apellido2">Segundo Apellido</label>
+            <input name="apellido2" type="text">
+
+            <label for="departamento">Departamento</label>
+            <select name="departamento">
+                <option value="1">Desarrollo</option>
+                <option value="2">Sistemas</option>
+                <option value="3">Recursos Humanos</option>
+                <option value="4">Contabilidad</option>
+                <option value="5">I+D</option>
+                <option value="6">Proyectos</option>
+                <option value="7">Publicidad</option>
+            </select>
+            <p>
+                <button name="enviar" type="submit">Dar de alta</button>
+                <button name="reiniciar" type="reset">Borrar datos</button>
+            </p>
+           </fieldset>
+            
+    </form>
+
+</body>
+
+</html>

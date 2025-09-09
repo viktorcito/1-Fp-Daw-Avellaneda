@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios con formulario</title>
+    <link rel="stylesheet" href="estilo.css" />
+</head>
+
+<body>
+    <h1>Hoja de inscripcion</h1>
+    <h1>En los ciclos formativos de grado superior</h1>
+
+    <form action="">
+        <fieldset>
+            <legend>DATOS PERSONALES</legend>
+            <table>
+                <tr>
+                    <td><label for="name">Nombre</label></td>
+                    <td><label for="apellidos">Apellido</label></td>
+                    <td><label for="dni">DNI</label></td>
+
+                </tr>
+                <tr>
+                    <td><input type="text" name="nombre" required /></td>
+                    <td><input type="text" name="apellidos" required /></td>
+                    <td><input type="text" name="dni" pattern="[0-9]{8}[A-Z]{1}" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="Localidad">Localidad nacimiento</label></td>
+                    <td><label for="Provincia">Provincia</label></td>
+                    <td><label for="Fecha">Fecha de nacimiento</label></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="Localidad" /></td>
+                    <td>
+                        <select name="Provincia">
+                            <option>Huelva</option>
+                            <option>Madrid</option>
+                            <option>Alicante</option>
+                            <option>Cordoba</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="date" name="Fecha" size="50" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><label for="Direccion">Direccion</label></td>
+                    <td><label for="Codpostal">Codigo postal:</label></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="text" size="40" name="Direccion" maxlength="10" />
+                    </td>
+                    <td>
+                        <input type="text" id="Codpostal" name="Codpostal" pattern="[0-9]{5}" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset style="background-color: salmon;">
+            <legend>Forma de Acceso</legend>
+            <ul style="list-style-type: none;">
+                <li><input type="radio" name="etapa" value="Directo" />Directo
+                    <ul style="list-style-type: none;">
+                        <li><input type="radio" name="etapa" value="logse">Bachillerato <input type="text"></li>
+                        <li><input type="radio" name="etapa" value="experimental">Experimental</li>
+                        <li><input type="radio" name="etapa" value="cou">Cou <input type="text"></li>
+                        <li><input type="radio" name="etapa" value="fp2">Fp2</li>
+                        <li><input type="radio" name="etapa" value="otros" />Otros (especifique) <input type="text">
+                        </li>
+                    </ul>
+                </li>
+
+                <li><input type="radio" name="etapa" value="prueba">Prueba Libre</li>
+            </ul>
+        </fieldset>
+
+        <fieldset style="background-color: brown;">
+            <legend>Documentos Adjuntados</legend>
+            <table>
+                <tr>
+                    <td><input type="checkbox" name="docs" value="dni">Fotocopia Dni</td>
+                    <td><input type="checkbox" name="docs" value="cerificado">Certificado Academico</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="docs" value="otros"> Otros documentos (especifique)
+                        <input type="text">
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <p>
+            <input type="submit" value="Enviar Solicitud">
+            <input type="reset" value="Reset">
+            <input type="button" value="Saludar" onclick="alert('Hola!!!');"/>
+        </p>
+    </form>
+</body>
+
+</html>

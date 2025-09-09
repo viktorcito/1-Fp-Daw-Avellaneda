@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Fuente*/
+    font-family:"Poppins", sans-serif;
+  /* Color de fondo snow */
+    background-color: snow;
+  /* Centrar la página */
+    margin: 10px auto;
+  /* Especificar un ancho máximo de 1000 px*/
+    max-width: 1000px;
+}
+
+/* A completar las diferentes reglas CSS */
+img{
+    max-width: 100%;
+}
+.item{
+    border: blue solid 5px;
+    border-radius: 10px;
+}
+
+.container{
+    display: grid;
+
+    grid-template-areas:
+    "head head"
+    "nav nav"
+    "main main"
+    "foot foot";
+    
+    gap: 10px;
+}
+
+
+header{
+    grid-area: head;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+header span::first-letter{
+    font-size: 2em;
+    color: blueviolet;
+}
+
+nav{
+    grid-area: nav;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+nav div:hover{
+    background-color: gray;
+}
+nav div>a:hover{
+    color: white;
+}
+
+main{
+    grid-area: main;
+    padding: 5%;
+
+}
+
+h1{
+    text-align: center;
+    color: blue;
+}
+
+footer{
+    grid-area: foot;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.centrado{
+    text-align: center;
+}
+
+@media (min-width: 1500px){
+    .container{
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: auto 1fr;
+        
+        grid-template-areas: 
+        "head head"
+        "nav main"
+        "foot foot";
+    }
+}

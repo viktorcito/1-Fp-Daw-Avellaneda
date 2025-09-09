@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE APPLE SYSTEM "APPLE.dtd">
+<APPLE> 
+   <!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="APPLE.xsd"> -->
+    <ORDENADORES importancia= '3'>
+        <MACBOOK nombre="AIR">
+            <COMPONENTES>
+                <PANTALLA pulgadas="13,3"> PANTALLA RETINA</PANTALLA>
+                <PROCESADOR CPU="8 nucleos"> CHIP M1</PROCESADOR>
+                <RAM>HASTA 16 GB</RAM>
+                <PESO>1,29 KG</PESO>
+            </COMPONENTES>
+        </MACBOOK>
+        <MACBOOK nombre="PRO">
+            <COMPONENTES>
+                <PANTALLA pulgadas="14,2 || 16,2"> LIQUID RETINA XDR</PANTALLA>
+                <PROCESADOR CPU="10 nucleos"> CHIP M1 PRO O M1 MAX</PROCESADOR>
+                <RAM>HASTA 64 GB</RAM>
+                <PESO>1,6 O 2,1 KG</PESO>
+            </COMPONENTES>
+        </MACBOOK>
+    </ORDENADORES>
+    <TABLET importancia= '2'>
+        <IPAD nombre= "PRO">
+            <COMPONENTES generacion="100B">
+                <PROCESADOR>CHIP M2</PROCESADOR>
+                <PANTALLA pulgadas= "12,9">LIQUID RETINA XDR, TECNOLOGÍA PROMOTION &amp; TRUE TONE</PANTALLA>
+                <CONECTOR>CONECTOR USB-C COMPATIBLE CON THUNDERBOLT/USB 4</CONECTOR>
+            </COMPONENTES>
+        </IPAD>
+        <IPAD>
+            <COMPONENTES generacion= "150A">
+                <PROCESADOR>CHIP A14 BIONIC</PROCESADOR>
+                <PANTALLA pulgadas= "10,9">LIQUID RETINA</PANTALLA>
+                <COMPATIBILIDADES>COMPATIBLE CON EL APPLE PENCIL(1.ª GENERACION) &amp; EL MAGIC KEYBOARD FOLIO</COMPATIBILIDADES>
+            </COMPONENTES>
+        </IPAD>
+    </TABLET>
+    <MOVILES importancia= '1'>
+        <IPHONE nombre= "14 PRO" SERIAL="VG123456789">
+            <FECHA_SALIDA año="2022" mes="--09" dia="---16" />
+            <PANTALLA pulgadas= "6,7 || 6,1"> SUPER RETINA XDR &amp; TECNOLOGIA PROMOTION</PANTALLA>
+            <PROCESADOR>CHIP A16 BIONIC</PROCESADOR>
+            <PRECIO producto="VG123456789">
+                <MIN>1319&euro;</MIN>
+                <MAX>2119&euro;</MAX>
+            </PRECIO>
+        </IPHONE>
+    </MOVILES>
+    <OTROS_PRODUCTOS>
+        <APPLE_TV>RECOMENDACIONES: SERVANT / TED LASSO / ENCERRADO CON EL DIABLO</APPLE_TV>
+        <AppleCare>ES UN SEGURO QUE TE OFRECE ASISTENCIA TECNICA DE EXPERTOS Y COBERTURA HARDWARE</AppleCare>
+    </OTROS_PRODUCTOS>
+</APPLE>

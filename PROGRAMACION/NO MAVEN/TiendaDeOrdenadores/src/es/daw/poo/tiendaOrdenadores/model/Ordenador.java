@@ -1,0 +1,84 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package es.daw.poo.tiendaOrdenadores.model;
+
+import java.util.Objects;
+
+/**
+ *
+ * @author VSPC
+ */
+public class Ordenador implements Comparable<Ordenador> {
+    private String codigo;
+    private float precio;
+    private int duracion; // meses
+    
+    public final static String SLOGAN= "todos los ordenadores de la tienda son los mejores";
+
+    public Ordenador(String codigo, float precio) {
+        this.codigo = codigo;
+        this.precio = precio;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    @Override
+    public String toString() {
+        return "Ordenador{" + "codigo=" + codigo + ", precio=" + precio + ", duracion=" + duracion + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ordenador other = (Ordenador) obj;
+        return Objects.equals(this.codigo, other.codigo);
+    }
+
+    @Override
+    public int compareTo(Ordenador other) {
+        return codigo.compareTo(other.getCodigo());
+    }
+    
+    
+    
+    
+}

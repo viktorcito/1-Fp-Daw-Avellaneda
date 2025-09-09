@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Empleados y Departamentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Gestión de Empleados y Departamentos</h1>
+
+        <h2>Listar Departamentos</h2>
+        <form action="DepartamentoServlet" method="get">
+            <button type="submit" name="action" value="listar">Listar Departamentos</button>
+        </form>
+
+        <h2>Crear Departamento</h2>
+        <form action="DepartamentoServlet" method="post">
+            <input type="hidden" name="action" value="crear">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion">
+            <button type="submit">Crear</button>
+        </form>
+
+        <h2>Borrar Departamento</h2>
+        <form action="DepartamentoServlet" method="post">
+            <input type="hidden" name="action" value="borrar">
+            <label for="id">ID del Departamento:</label>
+            <input type="text" id="id" name="id" required>
+            <button type="submit">Borrar</button>
+        </form>
+
+        <h2>Actualizar Departamento</h2>
+        <form action="DepartamentoServlet" method="post">
+            <input type="hidden" name="action" value="actualizar">
+            <label for="id">ID del Departamento:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <h2>Listar Empleados</h2>
+        <form action="EmpleadoServlet" method="get">
+            <button type="submit" name="action" value="listar">Listar Empleados</button>
+        </form>
+
+        <h2>Crear Empleado</h2>
+        <form action="EmpleadoServlet" method="post">
+            <input type="hidden" name="action" value="crear">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="apellido1">Apellido1:</label>
+            <input type="text" id="apellido1" name="apellido1" required>
+            <label for="apellido2">Apellido2:</label>
+            <input type="text" id="apellido2" name="apellido2">
+            <label for="departamento_id">ID del Departamento:</label>
+            <input type="text" id="departamento_id" name="departamento_id">
+            <button type="submit">Crear</button>
+        </form>
+
+        <h2>Borrar Empleado</h2>
+        <form action="EmpleadoServlet" method="post">
+            <input type="hidden" name="action" value="borrar">
+            <label for="id">ID del Empleado:</label>
+            <input type="text" id="id" name="id" required>
+            <button type="submit">Borrar</button>
+        </form>
+
+        <h2>Actualizar Empleado</h2>
+        <form action="EmpleadoServlet" method="post">
+            <input type="hidden" name="action" value="actualizar">
+            <label for="id">ID del Empleado:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="apellido1">Apellido1:</label>
+            <input type="text" id="apellido1" name="apellido1" required>
+            <label for="apellido2">Apellido2:</label>
+            <input type="text" id="apellido2" name="apellido2">
+            <label for="departamento_id">ID del Departamento:</label>
+            <input type="text" id="departamento_id" name="departamento_id">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <h2>Importar desde CSV</h2>
+        <form action="ImportCsvServlet" method="post" enctype="multipart/form-data">
+            <label for="file">Seleccionar archivo CSV:</label>
+            <input type="file" id="file" name="file" accept=".csv" required>
+            <label for="entityType">Tipo de entidad:</label>
+            <select id="entityType" name="entityType" required>
+                <option value="empleado">Empleado</option>
+                <option value="departamento">Departamento</option>
+            </select>
+            <button type="submit">Importar</button>
+        </form>
+
+        <h2>Exportar a CSV</h2>
+        <form action="ExportCsvServlet" method="get">
+            <label for="entityTypeExport">Tipo de entidad:</label>
+            <select id="entityTypeExport" name="entityType" required>
+                <option value="empleado">Empleado</option>
+                <option value="departamento">Departamento</option>
+            </select>
+            <button type="submit">Exportar</button>
+        </form>
+    </main>
+</body>
+</html>

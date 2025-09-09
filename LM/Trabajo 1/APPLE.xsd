@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- TIPOS COMPLEJOS DEL APARTADO DE ORDENADORES -->
+
+<xs:complexType name="tipopantalla">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="pulgadas" use="optional" />
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="tipoprocesador">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="CPU" type="enumeracion" use="required" />
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="tipocomponentes">
+    <xs:group ref="grupoelementosOrdenadores"></xs:group>
+</xs:complexType>
+
+<xs:complexType name="tipoMacbook">
+    <xs:sequence>
+        <xs:element name="COMPONENTES" type="tipocomponentes"/>
+    </xs:sequence>
+    <xs:attribute name="nombre" type="xs:string" default="AIR|PRO" />
+</xs:complexType>
+
+<xs:complexType name="tipoOrdenadores">
+    <xs:sequence>
+        <xs:element name="MACBOOK" maxOccurs="unbounded" type="tipoMacbook"/>
+    </xs:sequence>
+    <xs:attribute name="importancia" type="xs:integer" use="required" />
+</xs:complexType>
+
+
+<!-- TIPOS COMPLEJOS DEL APARTADO TABLET -->
+
+<xs:complexType name="tipopantalla2">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="pulgadas" default="12,9" />
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="tipocomponentes2">
+    <xs:group ref="grupoelementosTablet"></xs:group>
+    <xs:attribute name="generacion" type="patron" use="optional" />
+</xs:complexType>
+
+<xs:complexType name="tipoIpad">
+    <xs:sequence>
+        <xs:element name="COMPONENTES" type="tipocomponentes2"/>
+    </xs:sequence>
+    <xs:attribute name="nombre" type="caracteres" fixed="PRO"/>
+</xs:complexType>
+
+<xs:complexType name="tipoTablet">
+    <xs:sequence>
+        <xs:element name="IPAD" maxOccurs="unbounded" type="tipoIpad"/>
+    </xs:sequence>
+    <xs:attribute name="importancia" type="xs:integer" use="required" />
+</xs:complexType>
+
+<!-- TIPOS COMPLEJOS DEL APARTADO MOVILES -->
+
+<xs:complexType name="FechaSalida">
+    <xs:attribute name="año" type="xs:gYear" use="required" />
+    <xs:attribute name="mes" type="xs:gMonth" use="required" />
+    <xs:attribute name="dia" type="xs:gDay" use="required" />
+</xs:complexType>
+
+<xs:complexType name="tipopantalla3">
+    <xs:simpleContent>
+        <xs:extension base="xs:string">
+            <xs:attribute name="pulgadas" use="required" />
+        </xs:extension>
+    </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="tipoPrecio">
+    <xs:sequence>
+        <xs:element name="MIN" type="xs:integer" />
+        <xs:element name="MAX" type="xs:integer" />
+    </xs:sequence>
+    <xs:attribute name="producto" use="required" />
+</xs:complexType>
+
+<xs:complexType name="tipoIphone">
+    <xs:sequence>
+        <xs:element name="FECHA_SALIDA" type="FechaSalida"/>
+        <xs:element name="PANTALLA" type="tipopantalla3"/>
+        <xs:element name="PROCESADOR" type="xs:string" />
+        <xs:element name="PRECIO" type="tipoPrecio"/>
+    </xs:sequence>
+    <xs:attribute name="nombre" type="xs:token" fixed="14 PRO" />
+    <xs:attribute name="SERIAL" id="VG123456789" use="required" />
+</xs:complexType>
+
+<xs:complexType name="tipoMoviles">
+    <xs:sequence>
+        <xs:element name="IPHONE" type="tipoIphone"/>
+    </xs:sequence>
+    <xs:attribute name="importancia" type="numeritos" use="required" />
+</xs:complexType>
+
+<!-- TIPO COMPLEJO DEL APARTADO OTROS PRODUCTOS -->
+
+<xs:complexType name="tipoOtrosProductos">
+    <xs:group ref="grupoelementosOtrosProductos"></xs:group>
+</xs:complexType>
+
+<!-- TIPO COMPLEJO DE TODOS LOS APARTADOS DE LA PAGINA WEB DE APPLE  -->
+
+<xs:complexType name="tipoPaginaWebApple">
+    <xs:sequence>
+        <xs:element name="ORDENADORES" type="tipoOrdenadores"/>
+        <xs:element name="TABLET" type="tipoTablet"/>
+        <xs:element name="MOVILES" type="tipoMoviles"/>
+        <xs:element name="OTROS_PRODUCTOS" type="tipoOtrosProductos"/>
+    </xs:sequence>
+</xs:complexType>
+
+
+
+
+<!-- GRUPOS -->
+
+<xs:group name="grupoelementosOrdenadores">
+    <xs:sequence>
+        <xs:element name="PANTALLA" minOccurs="1" maxOccurs="2" type="tipopantalla"/>
+        <xs:element name="PROCESADOR" type="tipoprocesador"/>
+        <xs:element name="RAM" type="xs:string" />
+        <xs:element name="PESO" type="xs:string" />
+    </xs:sequence>
+</xs:group>
+
+<xs:group name="grupoelementosTablet">
+    <xs:all>
+        <xs:element name="PROCESADOR" type="xs:string" />
+        <xs:element name="PANTALLA" type="tipopantalla2"/>
+        <xs:element name="CONECTOR" minOccurs="0" type="xs:string" />
+        <xs:element name="COMPATIBILIDADES" minOccurs="0" type="xs:string" />
+    </xs:all>
+</xs:group>
+
+<xs:group name="grupoelementosOtrosProductos">
+    <xs:choice>
+        <xs:element name="APPLE_TV" minOccurs="1" maxOccurs="3" type="xs:string" />
+        <xs:element name="AppleCare" maxOccurs="2" type="xs:string" />
+    </xs:choice>
+</xs:group>
+
+
+
+
+<!-- TIPOS SIMPLES CONSTRUIDOS -->
+
+<xs:simpleType name="caracteres">
+    <xs:restriction base="xs:string">
+        <xs:length value="3"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="patron">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{3}[A-Z]{1}"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="enumeracion">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="8 nucleos"/>
+        <xs:enumeration value="10 nucleos"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="numeritos">
+    <xs:restriction base="xs:integer">
+        <xs:minInclusive value="1"/>
+        <xs:maxInclusive value="3"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
+
+
+
+<!-- ELEMENTO ROOT,KeyRef -->
+
+ <xs:element name="APPLE" type="tipoPaginaWebApple">
+
+   <xs:key name="keySERIAL">
+    <xs:selector xpath="MOVILES/IPHONE"/>
+    <xs:field xpath="@SERIAL"></xs:field>
+   </xs:key>
+
+   <xs:keyref name="keyRefSERIAL" refer="keySERIAL">
+    <xs:selector xpath="IPHONE/PRECIO"/>
+    <xs:field xpath="@producto"></xs:field>
+   </xs:keyref>
+
+ </xs:element>
+
+</xs:schema>
